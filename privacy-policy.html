@@ -35,6 +35,29 @@ foreground service for any other purpose.</p>
 <p>The App offers an optional toggle to start the hotspot automatically after the
 TV restarts. This preference is stored only on your device and never leaves it.</p>
 
+<h2>Permissions Used</h2>
+<p>The App accesses only the permissions required for its hotspot function, and
+all processing stays on your device:</p>
+<ul>
+<li>Location / Nearby Wi-Fi Devices (<code>NEARBY_WIFI_DEVICES</code>, with fallback to
+<code>ACCESS_FINE_LOCATION</code> / <code>ACCESS_COARSE_LOCATION</code> on older Android) —
+required by Android to create Wi-Fi Direct groups. Processed on-device only,
+never transmitted, tracked, or shared.</li>
+<li>Wi-Fi and Network state (<code>CHANGE_WIFI_STATE</code>, <code>ACCESS_WIFI_STATE</code>,
+<code>ACCESS_NETWORK_STATE</code>, <code>CHANGE_NETWORK_STATE</code>, <code>ACCESS_LOCAL_NETWORK</code>) —
+to create the hotspot group and route proxy traffic locally.</li>
+<li>Notifications (<code>FOREGROUND_SERVICE</code>, <code>FOREGROUND_SERVICE_CONNECTED_DEVICE</code>) —
+to show hotspot status while the hotspot runs.</li>
+<li>Exact Alarm + Boot Completed (<code>SCHEDULE_EXACT_ALARM</code>,
+<code>RECEIVE_BOOT_COMPLETED</code>) — only if you enable auto-start on boot, to retry
+the start after a restart.</li>
+<li>Ignore Battery Optimizations (<code>REQUEST_IGNORE_BATTERY_OPTIMIZATIONS</code>) —
+only if you tap the battery row, to keep the hotspot alive.</li>
+</ul>
+<p>The App does not access contacts, camera, microphone, or files. No data is
+shared with any SDK or third party except purchase processing by Google Play
+(see below).</p>
+
 <h2>Information Collection and Use</h2>
 <p>This App does not collect any data. Your hotspot name, password, settings, and
 usage stay private, on your device, only accessible by you. Network traffic you
@@ -42,9 +65,21 @@ choose to route through the proxy passes through your own device and is never
 logged, stored, or shared with gemxd or any other party, except where you
 voluntarily send data to the developer for troubleshooting (for example crash
 reports or usability issues).</p>
+<p>No account is created, no analytics SDK is bundled, and no advertising SDK is
+bundled. The App contains no ads.</p>
 <p>Purchases are processed by Google Play and are subject to the following
 third-party privacy policy:</p>
 <p><a href="https://www.google.com/policies/privacy/">Google Play Services</a></p>
+
+<h2>Data Deletion</h2>
+<p>Because the App collects no data on any server, there is nothing to delete
+server-side. To delete all on-device data (preferences, hotspot name/password,
+auto-start toggle), uninstall the App or use TV Settings → Apps → TV Hotspot
+Pro → Clear data. Questions: <a href="mailto:support@gemxd.com">support@gemxd.com</a>.</p>
+
+<h2>Security</h2>
+<p>All settings remain on your device and are never transmitted to gemxd. Proxy
+traffic is routed locally between your TV and your connected devices.</p>
 
 <h2>Links to Other Sites</h2>
 <p>This App may contain links to other sites. If you click a third-party link, you
